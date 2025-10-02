@@ -1,9 +1,14 @@
-
 import React from 'react';
-
-// Since Recharts is loaded via CDN, we access it from the window object.
-// We cast to `any` to avoid TypeScript errors.
-const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = (window as any).Recharts;
+import { 
+  LineChart, 
+  Line, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  Legend, 
+  ResponsiveContainer 
+} from 'recharts';
 
 interface PerformanceChartProps {
   data: { name: string; 'Avg Score': number }[];
@@ -15,16 +20,19 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({ data }) => {
       <ResponsiveContainer>
         <LineChart
           data={data}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="Avg Score" stroke="#3b82f6" activeDot={{ r: 8 }} />
+          <Line 
+            type="monotone" 
+            dataKey="Avg Score" 
+            stroke="#3b82f6" 
+            activeDot={{ r: 8 }} 
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

@@ -1,29 +1,28 @@
-
-import React from 'react';
-
-// Since Recharts is loaded via CDN, we access it from the window object.
-const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } = (window as any).Recharts;
+import React from "react";
+import { 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer 
+} from "recharts";
 
 interface ActivityChartProps {
-  data: { name: string; logins: number }[];
+  data: { name: string; value: number }[];
 }
 
 const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   return (
-    <div style={{ width: '100%', height: 300 }}>
+    <div style={{ width: "100%", height: 300 }}>
       <ResponsiveContainer>
-        <BarChart
-          data={data}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-        >
+        <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="logins" fill="#8884d8" />
+          <Bar dataKey="value" fill="#3b82f6" />
         </BarChart>
       </ResponsiveContainer>
     </div>
