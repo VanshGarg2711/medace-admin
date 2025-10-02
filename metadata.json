@@ -1,0 +1,5 @@
+{
+  "name": "medACE Admin Panel",
+  "description": "An admin panel for medACE, an MBBS/PG medical exam preparation platform. Manage questions, quizzes, students, and view analytics.",
+  "requestFramePermissions": []
+}
